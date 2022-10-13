@@ -14,6 +14,7 @@ function Activities() {
   return (
     <div className="activities">
       <div className="right">
+          <h3>Upcoming Activities/Events</h3>
         {activities.map((activity) => {
           return (
             <div key={activity.id} className = "details">

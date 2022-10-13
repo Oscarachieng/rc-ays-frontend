@@ -69,3 +69,10 @@ code {
   font-weight: lighter;
   font-size: large;
 }
+
+.right h3 {
+  color: black;
+  font-weight: lighter;
+  font-size: larger;
+  margin-left: 50%;
+}
