@@ -5,7 +5,7 @@ function Activities() {
   const [activities, setActivities] = useState([]);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products/?_limit=5")
+    fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((data) => setActivities(data));
   }, []);

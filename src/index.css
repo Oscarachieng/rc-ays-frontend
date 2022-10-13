@@ -27,12 +27,22 @@ code {
 
 }
 
-.introduction p, .introduction h2, .introduction button {
+.introduction p, .introduction h2, .introduction button, .about-us button, .about-us p {
   margin-top: 40px;
 }
 
+.about-us h1 {
+  font-weight: lighter;
+  font-size: 800;
+  color: white;
+}
 
-.introduction button {
+.about-us p {
+  color: white;
+}
+
+
+.introduction button, .about-us button {
   padding: 10px;
   font-size: larger;
   border-color: white;
@@ -46,6 +56,14 @@ code {
   color: black;
   background-color: white;
 }
+
+.about-us button:hover {
+  color: black;
+  background-color: white;
+  font-weight: lighter;
+}
+
+
 .details {
   display: flex;
   margin-left: 50%;
@@ -63,6 +81,8 @@ code {
   border-right-width: 1px;
   margin-right:20px;
   padding-right: 20px;
+  font-weight: lighter;
+  font-size: large;
 }
 .details h6{
   color: blue;
@@ -75,4 +95,50 @@ code {
   font-weight: lighter;
   font-size: larger;
   margin-left: 50%;
+}
+
+.about-us {
+  background-color: orange;
+  height: 400px;
+  padding-top: 200px;
+}
+
+.navs  {
+   background-color: lightslategray;
+   display: flex;
+   justify-content: space-around;
+}
+
+.resource-details {
+  display: flex;
+  justify-content: space-around;
+  border-bottom-style: groove;
+  border-bottom-color: black;
+  border-bottom-width: 1px;
+
+}
+.resource-details img {
+  height: 100px;
+  width: 100px;
+  border-right-style: groove;
+  border-right-color: black;
+  border-right-width: 1px;
+  padding-right: 30px;
+
+}
+.resource-details h3 {
+  height: 100px;
+  width: 600px;
+  padding-right: 30px;
+  font-weight: lighter;
+  border-right-style: groove;
+  border-right-color: black;
+  border-right-width: 1px;
+
+}
+
+.resources h1 {
+  border-bottom-style: groove;
+  border-bottom-color: black;
+  border-bottom-width: 1px;
 }
