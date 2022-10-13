@@ -7,6 +7,7 @@ import './App.css';
 import About from './components/About';
 import Activities from './components/Activities';
 import Resources from './components/Resources';
+import Registration from './components/Registration';
 
 function App() {
   return (
@@ -18,12 +19,12 @@ function App() {
           <Route path='/about' element={<About />}/>
           <Route path='activities' element={<Activities />}/>
           <Route path='Resources' element={<Resources />}/>
-          <Route path='council' element={<About />}/>
+          <Route path='registration' element={<Registration />}/>
           <Route path='council' element={<About />}/>
           <Route path='council' element={<About />}/>
 
         </Routes>
-      
+
     </div>
   );
 }

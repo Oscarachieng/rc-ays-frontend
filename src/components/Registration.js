@@ -13,7 +13,7 @@ function Registration() {
     e.preventDefault();
 
     //form data
-    formData = {
+    const formData = {
       first_name: first_name,
       last_name: last_name,
       password: password,
@@ -48,7 +48,7 @@ function Registration() {
 
   return (
     <div className="registration">
-      <h1>Registration Form</h1>
+      <h1>Register With Us</h1>
       <form onSubmit={handleSubmitClick}>
         <h5>First Name:</h5>
         <input
@@ -86,7 +86,7 @@ function Registration() {
           placeholder="Enter your Password here"
           required
         />
-        <h4>Estate:</h4>
+        <h5>Estate:</h5>
         <input
           type="text"
           name="location"
@@ -95,7 +95,7 @@ function Registration() {
           placeholder="Enter Your Estate"
           required
         />
-        <h4>Email_address:</h4>
+        <h5>Email_address:</h5>
         <input
           type="email"
           name="email"
@@ -105,7 +105,7 @@ function Registration() {
           required
         />
 
-        <button type="submit">Add Comment</button>
+        <button type="submit">Sign-up</button>
       </form>
     </div>
   );

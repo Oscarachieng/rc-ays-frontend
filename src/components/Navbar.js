@@ -30,7 +30,7 @@ const Navbar = () => {
       </NavLink>
      
 
-      <NavLink to="/sign" style={isActiveLink}>
+      <NavLink to="/registration" style={isActiveLink}>
         Join Us
       </NavLink>
 
