@@ -9,9 +9,11 @@ const isActiveLink = ({ isActive }) => {
   }
 }
 
-export default function NavBar() {
+const NavBar = () => {
+
+    console.log("oSCAR")
   return (
-    <nav className="navbuttons">
+    <nav className="navs">
       <NavLink exact to="/"  style= {isActiveLink}>
         Home
       </NavLink>
@@ -19,14 +21,14 @@ export default function NavBar() {
       <NavLink to="/about" style={isActiveLink}>
         Who we Are
         </NavLink>
-      <NavLink to="/productlist" style={isActiveLink}>
+      <NavLink to="/resources" style={isActiveLink}>
         Resources
       </NavLink>
 
-      <NavLink to="/mycart" style={isActiveLink}>
+      <NavLink to="/activities" style={isActiveLink}>
         What We Do
       </NavLink>
-      <NavLink to="/reviews" style={isActiveLink}>
+      <NavLink to="/members" style={isActiveLink}>
         Council
       </NavLink>
 
@@ -36,3 +38,5 @@ export default function NavBar() {
 
     </nav>)
 }
+
+export default NavBar;

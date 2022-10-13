@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {
@@ -12,6 +13,36 @@ code {
     monospace;
 }
 
-.navbuttons {
-  
+.homepage {
+ 
+  background-color: orange;
+  height: 400px;
+  width: auto;
+}
+
+.introduction {
+  align-items: center;
+  vertical-align: middle;
+  margin-top: 200px;
+
+}
+
+.introduction p, .introduction h2, .introduction button {
+  margin-top: 40px;
+}
+
+
+.introduction button {
+  padding: 10px;
+  font-size: larger;
+  border-color: white;
+  border-width: 1px;
+  color: white;
+  font-weight: lighter;
+  background-color: grey;
+}
+
+.introduction button:hover {
+  color: black;
+  background-color: white;
 }
