@@ -8,6 +8,7 @@ import About from './components/About';
 import Activities from './components/Activities';
 import Resources from './components/Resources';
 import Registration from './components/Registration';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
           <Route path='activities' element={<Activities />}/>
           <Route path='Resources' element={<Resources />}/>
           <Route path='registration' element={<Registration />}/>
-          <Route path='council' element={<About />}/>
+          <Route path='login' element={<Login />}/>
           <Route path='council' element={<About />}/>
 
         </Routes>

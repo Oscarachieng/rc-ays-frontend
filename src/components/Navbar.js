@@ -14,7 +14,7 @@ const Navbar = () => {
     console.log("oSCAR")
   return (
     <nav className="navs">
-      <NavLink exact to="/"  >
+      <NavLink exact to="/" style={isActiveLink} >
         Home
       </NavLink>
 

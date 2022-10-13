@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 function Registration() {
   const [first_name, setFirstName] = useState("");
@@ -8,6 +9,8 @@ function Registration() {
   const [estate, setEstate] = useState("");
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState([]);
+
+  const navigate = useNavigate();
 
   async function handleSubmitClick(e) {
     e.preventDefault();
@@ -33,22 +36,29 @@ function Registration() {
     const data = await response.json();
     if (response.ok) {
       console.log("Memebr created:", data);
+      setEmail("");
+      setEstate(" ");
+      setFirstName(" ");
+      setLastName(" ");
+      setPassword("");
+      setPasswordConfirmation(" ");
+      navigate("/login");
     } else {
       console.log(data.errors);
       setErrors(data.errors);
     }
-
-    setEmail("");
-    setEstate(" ");
-    setFirstName(" ");
-    setLastName(" ");
-    setPassword("");
-    setPasswordConfirmation(" ");
   }
 
   return (
     <div className="registration">
       <h1>Register With Us</h1>
+      {errors.length > 0 && (
+        <ul style={{ color: "red" }}>
+          {errors.map((error) => (
+            <li key={error}>{error}</li>
+          ))}
+        </ul>
+      )}
       <form onSubmit={handleSubmitClick}>
         <h5>First Name:</h5>
         <input
@@ -107,6 +117,13 @@ function Registration() {
 
         <button type="submit">Sign-up</button>
       </form>
+      <p>
+        Have an Account?
+        <br />
+        <span className="line">
+          <Link to={"/login"}>Login</Link>
+        </span>
+      </p>
     </div>
   );
 }
