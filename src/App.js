@@ -9,6 +9,7 @@ import Activities from './components/Activities';
 import Resources from './components/Resources';
 import Registration from './components/Registration';
 import Login from './components/Login';
+import CreateMaterial from './components/CreateMaterial';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
           <Route path='Resources' element={<Resources />}/>
           <Route path='registration' element={<Registration />}/>
           <Route path='login' element={<Login />}/>
-          <Route path='council' element={<About />}/>
+          <Route path='createresource' element={<CreateMaterial />}/>
 
         </Routes>
 

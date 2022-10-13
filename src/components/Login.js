@@ -40,7 +40,7 @@ function Login() {
     }
   }
   return (
-    <>
+    <div className="registration">
       {errors.length > 0 && (
         <ul style={{ color: "red" }}>
           {errors.map((error) => (
@@ -76,7 +76,7 @@ function Login() {
           <Link to={"/registration"}>Sign Up</Link>
         </span>
       </p>
-    </>
+    </div>
   );
 }
 
