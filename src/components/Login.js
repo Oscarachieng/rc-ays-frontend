@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function Login() {
+function Login( { setisLoggedIn } ) {
   const [email, setEmail] = useState(" ");
   const [password, setPassword] = useState(" ");
   const [errors, setErrors] = useState([]);
+  const [loginalert, setLoginalert] = useState('')
 
   const navigate = useNavigate();
 
-  async function handleSubmitClick(event) {
-    event.preventDefault();
+  async function handleSubmitClick(e) {
+    e.preventDefault();
 
     const formData = {
       email: email,
       password: password,
     };
     const response = await fetch(
-      "https://phase-3-sinatra-project.herokuapp.com/login",
+      "/login",
       {
         method: "POST",
         headers: {
@@ -30,24 +31,31 @@ function Login() {
     const data = await response.json();
 
     if (response.ok) {
-      console.log("Memebr created:", data);
+      setisLoggedIn(data)
+      setLoginalert("Login Successfull")
       setEmail("");
       setPassword("");
-      navigate("/");
+      setTimeout(()=> navigate('/'), 500)
+     
     } else {
-      console.log(data.errors);
-      setErrors(data.errors);
+      
+      setErrors([data.error]);
     }
   }
+  console.log(errors)
   return (
     <div className="registration">
       {errors.length > 0 && (
         <ul style={{ color: "red" }}>
-          {errors.map((error) => (
+          {errors.map((error) => {
+            return (
             <li key={error}>{error}</li>
-          ))}
+          )})
+         }
         </ul>
-      )}
+      )
+      }
+      <h4 style={{color:"green"}}>{loginalert}</h4>
       <form onSubmit={handleSubmitClick}>
         <h5>email:</h5>
         <input
@@ -66,7 +74,7 @@ function Login() {
           value={password}
           placeholder="Enter your Last Password here"
           required
-        />
+        /><br/>
         <button type="submit">Login</button>
       </form>
       <p>

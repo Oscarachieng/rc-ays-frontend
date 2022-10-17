@@ -15,19 +15,36 @@ code {
 
 .homepage {
  
-  background-color: orange;
+  background-image: url("https://www.pexels.com/photo/person-raising-hand-2774551/");
+  background-color: lightslategrey;
   height: 400px;
   width: auto;
 }
 
 .introduction {
   align-items: center;
+  
   vertical-align: middle;
-  margin-top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 700px;
 
 }
 
-.introduction p, .introduction h2, .introduction button, .about-us button, .about-us p {
+.introduction h2, .introduction p {
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  width: 700px;
+  font-size: larger;
+  font-weight: lighter;
+}
+
+.introduction h2 {
+  padding-top: 40px;
+}
+
+.introduction p, .introduction button, .about-us button, .about-us p {
   margin-top: 40px;
 }
 
@@ -39,6 +56,12 @@ code {
 
 .about-us p {
   color: white;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 700px;
+  font-size: larger;
+  font-weight: lighter;
 }
 
 
@@ -66,7 +89,6 @@ code {
 
 .details {
   display: flex;
-  margin-left: 50%;
   border-bottom-style: groove;
   border-bottom-color: black;
   border-bottom-width: 1px;
@@ -90,20 +112,31 @@ code {
   font-size: large;
 }
 
+.activities .right {
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
 .right h3 {
   color: black;
   font-weight: lighter;
   font-size: larger;
-  margin-left: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom-style: groove;
+  border-bottom-color: black;
+  border-bottom-width: 1px;
 }
 
 .about-us {
-  background-color: orange;
+  background-color: lightslategray;
   height: 400px;
-  padding-top: 200px;
+  padding-top: 100px;
 }
 
 .navs  {
+  padding-top: 20px;
    background-color: lightslategray;
    display: flex;
    justify-content: space-around;
@@ -170,4 +203,66 @@ code {
 
 .registration h5 {
   font-weight: 400;
+}
+
+.resource-single {
+  max-width: 70%;
+  background-color: lightgray;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 20px;
+}
+
+.image img {
+  height: 300px;
+  padding: 10px;
+
+}
+.image {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 30px;
+  border-bottom-style: groove;
+  border-bottom-color: black;
+  border-bottom-width: 1px;
+}
+.image h3 {
+  text-align: center;
+}
+.descrip {
+  border-bottom-style: groove;
+  border-bottom-color: black;
+  border-bottom-width: 1px;
+  font-weight: lighter;
+  font-size: larger;
+}
+
+.resource-single button {
+  padding: 10px;
+  margin-left: 50px;
+  margin-top: 20px;
+  font-size: larger;
+  border-color: white;
+  border-width: 1px;
+  color: white;
+  font-weight: lighter;
+  background-color: grey;
+}
+
+.leadership {
+  margin-left: auto;
+  margin-right: auto;
+  height: 300px;
+  width: 70%;
+  background-color: lightgrey;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.exec-details img {
+  height: 200px;
+}
+.executive {
+  display: flex;
+  justify-content: space-around;
 }

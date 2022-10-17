@@ -87,10 +87,10 @@ function CreateActivity() {
           type="text"
           name="event_date"
           onChange={(event) => setEventDate(event.target.value)}
-          value={theme}
+          value={event_date}
           placeholder="Enter your  Date here"
           required
-        />
+        /><br/>
         <button type="submit">Add Activity</button>
       </form>
     </div>

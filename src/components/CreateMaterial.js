@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function CreateMaterial() {
+function CreateMaterial({my_resource}) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [imag_url, setImage_url] = useState("");
+  const [image_url, setImage_url] = useState("");
   const [theme, setTheme] = useState("");
   const [errors, setErrors] = useState([]);
 
@@ -16,11 +16,11 @@ function CreateMaterial() {
     const formData = {
       title: title,
       description: description,
-      imag_url: imag_url,
+      image_url: image_url,
       theme: theme,
     };
     const response = await fetch(
-      "https://phase-3-sinatra-project.herokuapp.com/login",
+      '/resources',
       {
         method: "POST",
         headers: {
@@ -43,6 +43,51 @@ function CreateMaterial() {
     } else {
       setErrors(data.errors);
     }
+  }
+
+  async function handleUpdate(event) {
+    event.preventDefault();
+
+    const formData = {
+      title: title,
+      description: description,
+      image_url: image_url,
+      theme: theme,
+    };
+    const response = await fetch(
+      `/resources/${my_resource.id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
+    //response.json() returns a Promise, we must await it
+    const data = await response.json();
+
+    if (response.ok) {
+      setTitle("");
+      setDescription("");
+      setImage_url("");
+      setTheme("");
+      navigate("/resources");
+    } else {
+      setErrors(data.errors);
+    }
+  }
+
+ 
+
+  const handleEDit = (event) => {
+    console.log(event.target.textContent)
+    setTitle(my_resource.title);
+    setDescription(my_resource.title);
+    setImage_url(my_resource.image_url);
+    setTheme(my_resource.theme);
+
   }
 
   return (
@@ -75,10 +120,10 @@ function CreateMaterial() {
         />
         <h5>Image_url:</h5>
         <input
-          type="url"
-          name="imag_url"
+          type="text"
+          name="image_url"
           onChange={(event) => setImage_url(event.target.value)}
-          value={imag_url}
+          value={image_url}
           placeholder="http://example.com"
           required
         />
@@ -90,9 +135,12 @@ function CreateMaterial() {
           value={theme}
           placeholder="Enter your  Password here"
           required
-        />
-        <button type="submit">Add Resource</button>
+        /><br/>
+        <button type="submit">create</button>
+       
       </form>
+      <button onClick={handleEDit}>Edit</button>
+      <button onClick={handleUpdate}>Update</button>
     </div>
   );
 }

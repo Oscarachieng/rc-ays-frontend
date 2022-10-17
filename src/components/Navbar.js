@@ -9,7 +9,16 @@ const isActiveLink = ({ isActive }) => {
   }
 }
 
-const Navbar = () => {
+const Navbar = ({isLoggedIn,  onLogout}) => {
+
+  const handleLogout =() => {
+    fetch("/logout", {
+      method: "DELETE",
+    }).then(() => {
+      onLogout()
+      console.log("Logged out")
+    });
+  }
 
     console.log("oSCAR")
   return (
@@ -29,11 +38,13 @@ const Navbar = () => {
         What We Do
       </NavLink>
      
-
-      <NavLink to="/registration" style={isActiveLink}>
-        Join Us
-      </NavLink>
-
+     { isLoggedIn ? (
+       <button onClick = {handleLogout}>logout</button>
+     ):( <NavLink to="/login" style={isActiveLink}>
+     Login
+   </NavLink>
+)}
+     
     </nav>)
 }
 

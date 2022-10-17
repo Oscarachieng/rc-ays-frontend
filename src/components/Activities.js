@@ -1,31 +1,15 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import ACtivityCard from "./ACtivityCard";
 
-function Activities() {
-  const [activities, setActivities] = useState([]);
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((data) => setActivities(data));
-  }, []);
-  console.log(activities);
-  //fetch an external date for the activities lists
+function Activities({ activities }) {
   return (
     <div className="activities">
       <div className="right">
-          <h3>Upcoming Activities/Events</h3>
-        {activities.map((activity) => {
-          return (
-            <div key={activity.id} className = "details">
-              <h4>{activity.category}</h4>
-              <h5>{activity.title}</h5>
-              <h6>{activity.price}</h6>
-            </div>
-          );
-        })}
+        <h3>Upcoming Activities/Events</h3>
+        {activities.map((activity) => (
+          <ACtivityCard key={activity.id} activity={activity} />
+        ))}
       </div>
-      Activities
     </div>
   );
 }

@@ -8,6 +8,7 @@ function Registration() {
   const [password_confirmation, setPasswordConfirmation] = useState("");
   const [estate, setEstate] = useState("");
   const [email, setEmail] = useState("");
+  const [image_url, setImageUrl] = useState("");
   const [errors, setErrors] = useState([]);
 
   const navigate = useNavigate();
@@ -23,9 +24,10 @@ function Registration() {
       password_confirmation: password_confirmation,
       estate: estate,
       email: email,
+      image_url:image_url
     };
     // fetch returns a Promise, we must await it
-    const response = await fetch("/member", {
+    const response = await fetch("/members", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,6 +44,7 @@ function Registration() {
       setLastName(" ");
       setPassword("");
       setPasswordConfirmation(" ");
+      setImageUrl("");
       navigate("/login");
     } else {
       console.log(data.errors);
@@ -114,6 +117,16 @@ function Registration() {
           placeholder="Enter Your Email"
           required
         />
+        <h5>Image_url:</h5>
+        <input
+          type="url"
+          name="image_url"
+          onChange={(event) => setEmail(event.target.value)}
+          value={image_url}
+          placeholder="Enter Your Email"
+          required
+        />
+        <br />
 
         <button type="submit">Sign-up</button>
       </form>
