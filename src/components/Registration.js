@@ -121,9 +121,9 @@ function Registration() {
         <input
           type="url"
           name="image_url"
-          onChange={(event) => setImageUr(event.target.value)}
+          onChange={(event) => setImageUrl(event.target.value)}
           value={image_url}
-          placeholder="Enter Your Email"
+          placeholder="Enter Your Image Url"
           required
         />
         <br />
