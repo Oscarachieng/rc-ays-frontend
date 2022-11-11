@@ -6,7 +6,7 @@ const About = () => {
   const [members, setMembers] = useState([]);
   useEffect(() => {
     axios
-      .get("/members")
+      .get("https://rc-ays.herokuapp.com/members")
       .then((response) => {
         const council = response.data.filter((councilor) => councilor.council);
         setMembers(council);
