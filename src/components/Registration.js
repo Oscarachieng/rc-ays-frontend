@@ -27,7 +27,7 @@ function Registration() {
       image_url:image_url
     };
     // fetch returns a Promise, we must await it
-    const response = await fetch("/members", {
+    const response = await fetch("https://rc-ays.herokuapp.com/members", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
