@@ -24,7 +24,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("https://fakestoreapi.com/products")
+      .get("https://rc-ays.herokuapp.com/activities")
       .then((response) => {
         console.log(activities)
         setActivities(response.data);
@@ -35,7 +35,7 @@ function App() {
   },[]);
 
   useEffect(() => {
-    fetch("/resources")
+    fetch("https://rc-ays.herokuapp.com/resources")
       .then((response) => response.json())
       .then((data) => {
         setResources(data);
@@ -43,7 +43,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("/me").then((response) => {
+    fetch("https://rc-ays.herokuapp.com/me").then((response) => {
       if (response.ok) {
         response.json().then((user) => setUser(user));
       }
