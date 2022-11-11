@@ -20,7 +20,7 @@ function CreateActivity() {
       event_date: event_date,
     };
     const response = await fetch(
-      "https://phase-3-sinatra-project.herokuapp.com/login",
+      "https://rc-ays.herokuapp.com/activities",
       {
         method: "POST",
         headers: {
