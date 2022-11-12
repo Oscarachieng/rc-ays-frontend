@@ -20,7 +20,7 @@ function CreateMaterial({my_resource}) {
       theme: theme,
     };
     const response = await fetch(
-      'https://rc-ays.herokuapp.com/resources',
+      '/resources',
       {
         method: "POST",
         headers: {
@@ -55,7 +55,7 @@ function CreateMaterial({my_resource}) {
       theme: theme,
     };
     const response = await fetch(
-      `https://rc-ays.herokuapp.com/resources/${my_resource.id}`,
+      `/resources/${my_resource.id}`,
       {
         method: "PATCH",
         headers: {
