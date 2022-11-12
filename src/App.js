@@ -43,7 +43,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("https://rc-ays.herokuapp.com/me").then((response) => {
+    fetch("/me").then((response) => {
       if (response.ok) {
         response.json().then((user) => setUser(user));
       }
