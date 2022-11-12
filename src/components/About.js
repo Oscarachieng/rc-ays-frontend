@@ -6,7 +6,7 @@ const About = () => {
   const [members, setMembers] = useState([]);
   useEffect(() => {
     axios
-      .get("/members")
+      .get("/members",{ mode: 'no-cors'})
       .then((response) => {
         const council = response.data.filter((councilor) => councilor.council);
         setMembers(council);
