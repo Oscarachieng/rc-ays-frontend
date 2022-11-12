@@ -18,7 +18,7 @@ function ActivityRegister({my_activity}) {
           activity_id:my_activity.id,
         };
         const response = await fetch(
-          'https://rc-ays.herokuapp.com/activity_registrations',
+          '/activity_registrations',
           {
             method: "POST",
             headers: {
