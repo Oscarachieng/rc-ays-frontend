@@ -20,7 +20,7 @@ function CreateActivity() {
       event_date: event_date,
     };
     const response = await fetch(
-      "https://rc-ays.herokuapp.com/activities",
+      "/activities",
       {
         method: "POST",
         headers: {
