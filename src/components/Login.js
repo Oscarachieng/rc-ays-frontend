@@ -17,7 +17,7 @@ function Login( { setisLoggedIn } ) {
       password: password,
     };
     const response = await fetch(
-      "/login",
+      "https://rc-ays.herokuapp.com/login",
       {
         method: "POST",
         headers: {
