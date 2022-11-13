@@ -7,6 +7,7 @@ function CreateActivity() {
   const [venue, setVenue] = useState("");
   const [event_date, setEventDate] = useState("");
   const [errors, setErrors] = useState([]);
+  const [success, setSuccess] = useState('')
 
   const navigate = useNavigate();
 
@@ -35,11 +36,14 @@ function CreateActivity() {
 
     if (response.ok) {
       console.log("Memebr created:", data);
+      setSuccess('Registered Successfully!!!')
       setTitle("");
       setDescription("");
       setVenue("");
       setEventDate("");
-      navigate("/resources");
+      setTimeout(() => {
+        navigate("/resources");
+      }, 5000);
     } else {
       setErrors(data.errors);
     }
@@ -54,6 +58,7 @@ function CreateActivity() {
           ))}
         </ul>
       )}
+      <h4 style={{ color: "green" }}>{success}</h4>
       <form onSubmit={handleSubmitClick}>
         <h5>Title:</h5>
         <input
