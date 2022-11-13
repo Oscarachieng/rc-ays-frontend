@@ -10,6 +10,7 @@ function Registration() {
   const [email, setEmail] = useState("");
   const [image_url, setImageUrl] = useState("");
   const [errors, setErrors] = useState([]);
+  const [success, setSuccess] = useState('')
 
   const navigate = useNavigate();
 
@@ -38,6 +39,7 @@ function Registration() {
     const data = await response.json();
     if (response.ok) {
       console.log("Memebr created:", data);
+      setSuccess('Registered Successfully!!!')
       setEmail("");
       setEstate(" ");
       setFirstName(" ");
@@ -45,7 +47,10 @@ function Registration() {
       setPassword("");
       setPasswordConfirmation(" ");
       setImageUrl("");
-      navigate("/login");
+      setTimeout(() => {
+        navigate("/login");
+      }, 3000);
+     
     } else {
       console.log(data.errors);
       setErrors(data.errors);
@@ -62,6 +67,7 @@ function Registration() {
           ))}
         </ul>
       )}
+      <h4 style={{ color: "green" }}>{success}</h4>
       <form onSubmit={handleSubmitClick}>
         <h5>First Name:</h5>
         <input

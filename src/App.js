@@ -24,9 +24,9 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("/activities",{ mode: 'no-cors'})
+      .get("/activities")
       .then((response) => {
-        console.log(activities)
+        console.log(response.data)
         setActivities(response.data);
       })
       .catch(function (error) {
@@ -43,7 +43,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("/me",{ mode: 'no-cors'}).then((response) => {
+    fetch("/me").then((response) => {
       if (response.ok) {
         response.json().then((user) => setUser(user));
       }
