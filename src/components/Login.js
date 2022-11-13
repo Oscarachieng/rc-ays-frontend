@@ -28,10 +28,10 @@ function Login( { setisLoggedIn } ) {
       }
     );
     //response.json() returns a Promise, we must await it
-    const data = await response.json();
+    const user = await response.json();
 
     if (response.ok) {
-      setisLoggedIn(data)
+      setisLoggedIn(user)
       setLoginalert("Login Successfull")
       setEmail("");
       setPassword("");
@@ -39,7 +39,7 @@ function Login( { setisLoggedIn } ) {
      
     } else {
       
-      setErrors([data.error]);
+      setErrors([user.error]);
     }
   }
   console.log(errors)

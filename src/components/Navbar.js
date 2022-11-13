@@ -9,18 +9,20 @@ const isActiveLink = ({ isActive }) => {
   }
 }
 
-const Navbar = ({isLoggedIn,  onLogout}) => {
+const Navbar = ({isLoggedIn, setisLoggedIn,  onLogout}) => {
 
   const handleLogout =() => {
     fetch("/logout", {
       method: "DELETE",
     }).then(() => {
-      onLogout()
+      localStorage.clear()
+      setisLoggedIn(null)
       console.log("Logged out")
+
     });
   }
 
-    console.log("oSCAR")
+    //console.log("oSCAR")
   return (
     <nav className="navs">
       <NavLink exact to="/" style={isActiveLink} end>

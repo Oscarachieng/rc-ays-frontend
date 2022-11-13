@@ -17,9 +17,10 @@ import ActivityDetails from "./components/ActivityDetails";
 import axios from "axios";
 
 function App() {
+  const initialUser = JSON.parse(localStorage.getItem('isLoggedIn'))
   const [resources, setResources] = useState([]);
-  const [isLoggedIn, setisLoggedIn] = useState(null);
-  const [user, setUser] = useState(null);
+  const [isLoggedIn, setisLoggedIn] = useState(initialUser);
+  //const [user, setUser] = useState(null);
   const [activities, setActivities] = useState([]);
 
   useEffect(() => {
@@ -45,19 +46,19 @@ function App() {
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
-        response.json().then((user) => setUser(user));
+        response.json().then((user) => setisLoggedIn(user));
       }
     });
   }, []);
 
-  const onLogout = () => {
-    setisLoggedIn(null);
-  };
+  // const onLogout = () => {
+  //   setisLoggedIn(null);
+  // };
 
   if (isLoggedIn) {
     return (
       <div className="App">
-        <Navbar isLoggedIn={isLoggedIn} onLogout={onLogout} />
+        <Navbar isLoggedIn={isLoggedIn} setisLoggedIn = {setisLoggedIn} />
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -81,7 +82,7 @@ function App() {
   } else {
     return (
       <div className="App">
-        <Navbar isLoggedIn={isLoggedIn} onLogout={onLogout} />
+        <Navbar isLoggedIn={isLoggedIn} setisLoggedIn = {setisLoggedIn} />
   
         <Routes>
           <Route path="/" element={<Home />} />
