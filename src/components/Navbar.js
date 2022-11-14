@@ -44,6 +44,16 @@ const Navbar = ({isLoggedIn, setisLoggedIn,  onLogout}) => {
       <NavLink to="/activities" style={isActiveLink}>
         What We Do
       </NavLink>
+
+      { isLoggedIn ?( <NavLink to="/createactivity" style={isActiveLink}>
+        Create Act
+       </NavLink>
+      ):null}
+
+     { isLoggedIn ?( <NavLink to="/createresource" style={isActiveLink}>
+        Create Material
+       </NavLink>
+      ):null}
      
      { isLoggedIn ? (
        <button onClick = {handleLogout}>logout</button>
