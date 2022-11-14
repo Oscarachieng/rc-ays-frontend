@@ -38,7 +38,7 @@ function Registration() {
     // response.json() returns a Promise, we must await it
     const data = await response.json();
     if (response.ok) {
-      console.log("Memebr created:", data);
+      console.log("Member created:", data);
       setSuccess('Registered Successfully!!!')
       setEmail("");
       setEstate(" ");
@@ -52,7 +52,7 @@ function Registration() {
       }, 3000);
      
     } else {
-      console.log(data.errors);
+     
       setErrors(data.errors);
     }
   }
