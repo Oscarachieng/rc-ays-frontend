@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 //condtitionally style the active Link
 const isActiveLink = ({ isActive }) => {
@@ -11,12 +11,17 @@ const isActiveLink = ({ isActive }) => {
 
 const Navbar = ({isLoggedIn, setisLoggedIn,  onLogout}) => {
 
+  const navigate = useNavigate()
+
   const handleLogout =() => {
     fetch("https://rc-ays.herokuapp.com/logout", {
       method: "DELETE",
     }).then(() => {
       localStorage.clear()
       setisLoggedIn(null)
+      setTimeout(() => {
+        navigate('/')
+      }, 2000);
       console.log("Logged out")
 
     });
