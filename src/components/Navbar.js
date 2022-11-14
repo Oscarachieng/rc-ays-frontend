@@ -12,7 +12,7 @@ const isActiveLink = ({ isActive }) => {
 const Navbar = ({isLoggedIn, setisLoggedIn,  onLogout}) => {
 
   const handleLogout =() => {
-    fetch("/logout", {
+    fetch("https://rc-ays.herokuapp.com/logout", {
       method: "DELETE",
     }).then(() => {
       localStorage.clear()

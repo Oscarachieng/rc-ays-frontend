@@ -25,7 +25,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("/activities")
+      .get("https://rc-ays.herokuapp.com/activities")
       .then((response) => {
         console.log(response.data)
         setActivities(response.data);
@@ -36,7 +36,7 @@ function App() {
   },[]);
 
   useEffect(() => {
-    fetch("/resources",{ mode: 'no-cors'})
+    fetch("https://rc-ays.herokuapp.com/resources")
       .then((response) => response.json())
       .then((data) => {
         setResources(data);
@@ -44,7 +44,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("/me").then((response) => {
+    fetch("https://rc-ays.herokuapp.com/me").then((response) => {
       if (response.ok) {
         response.json().then((user) => setisLoggedIn(user));
       }
