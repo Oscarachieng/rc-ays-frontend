@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function CreateMaterial({my_resource, resources, handleCreatedResource}) {
+function CreateMaterial({my_resource, resources, handleCreatedResource, isLoggedIn}) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [image_url, setImage_url] = useState("");
@@ -144,8 +144,11 @@ function CreateMaterial({my_resource, resources, handleCreatedResource}) {
         <button type="submit">create</button>
        
       </form>
+      { isLoggedIn ? (
+        <div>
       <button onClick={handleEDit}>Edit</button>
       <button onClick={handleUpdate}>Update</button>
+      </div>): null } 
     </div>
   );
 }

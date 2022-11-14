@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import CreateMaterial from "./CreateMaterial";
 
-function ResourceDetails({ resources, setResources }) {
+function ResourceDetails({ resources, setResources, isLoggedIn }) {
   const [edit, setEdit] = useState(false)
   const params = useParams();
 
@@ -28,8 +28,9 @@ function ResourceDetails({ resources, setResources }) {
         <p>{my_resource.title}</p>
       </section>
       <Link to='/resources'><button>Back</button></Link>
-      <button onClick={handleEdit}>Edit form</button>
-      { edit? <CreateMaterial my_resource={my_resource} resources={resources} setResources={setResources} handleEdit ={handleEdit} /> : null}
+      {isLoggedIn ? <button onClick={handleEdit}>Edit form</button> : null }
+      
+      { edit? <CreateMaterial my_resource={my_resource} resources={resources} setResources={setResources} handleEdit ={handleEdit} isLoggedIn={isLoggedIn} /> : null}
     </div>
   );
 }

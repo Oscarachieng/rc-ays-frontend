@@ -79,10 +79,10 @@ function App() {
           <Route path="createactivity" element={<CreateActivity />} />
           <Route
             path="resources/:id"
-            element={<ResourceDetails resources={resources} setResources={setResources} />}
+            element={<ResourceDetails resources={resources} setResources={setResources} isLoggedIn={isLoggedIn} />}
           />
 
-          <Route path="activities/:id" element={<ActivityDetails activities={activities}/>}/>
+          <Route path="activities/:id" element={<ActivityDetails activities={activities} isLoggedIn={isLoggedIn} />}/>
         </Routes>
       </div>
     );
@@ -101,10 +101,10 @@ function App() {
          
           <Route
             path="resources/:id"
-            element={<ResourceDetails resources={resources} />}
+            element={<ResourceDetails resources={resources} isLoggedIn={isLoggedIn} />}
             isLoggedIn={isLoggedIn}
           />
-          <Route path="activities/:id" element={<ActivityDetails activities={activities}/>}/>
+          <Route path="activities/:id" element={<ActivityDetails activities={activities} isLoggedIn={isLoggedIn} />}/>
         </Routes>
       </div>
     );

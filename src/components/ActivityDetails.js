@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import ActivityRegister from "./ActivityRegister";
 
 
-function ActivityDetails({activities}) {
+function ActivityDetails({activities,isLoggedIn}) {
     const [edit, setEdit] = useState(false)
 
     const params = useParams()
@@ -20,7 +20,8 @@ function ActivityDetails({activities}) {
       <Link to="/activities">
         <button>Back</button>
       </Link>
-      <button onClick={()=> setEdit(!edit)}>Register</button>
+      {isLoggedIn ? <button onClick={()=> setEdit(!edit)}>Register</button> : null }
+      
       {edit ? (
         <ActivityRegister my_activity={my_activity}  />
       ) : null}
