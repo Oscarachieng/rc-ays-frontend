@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function CreateMaterial({my_resource, resources, setResources}) {
+function CreateMaterial({my_resource, resources, handleCreatedResource}) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [image_url, setImage_url] = useState("");
@@ -34,8 +34,9 @@ function CreateMaterial({my_resource, resources, setResources}) {
     const data = await response.json();
 
     if (response.ok) {
-      console.log("Memebr created:", data);
-      setResources([...resources,data])
+      console.log("Resource created:", data);
+      //console.log(resources)
+      handleCreatedResource(data)
       setTitle("");
       setDescription("");
       setImage_url("");
@@ -70,13 +71,14 @@ function CreateMaterial({my_resource, resources, setResources}) {
     const data = await response.json();
 
     if (response.ok) {
-      setResources([...resources,data])
+      // console.log(data, resources)
+      // setResources([...resources,data])
       setTitle("");
       setDescription("");
       setImage_url("");
       setTheme("");
       console.log(data)
-      navigate("/resources");
+      //navigate("/resources");
     } else {
       setErrors(data.errors);
     }

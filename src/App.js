@@ -43,6 +43,11 @@ function App() {
       });
   }, []);
 
+
+  const handleCreatedResource=(resource)=> {
+    setResources([...resources, resource])
+  }
+
   useEffect(() => {
     fetch("https://rc-ays.herokuapp.com/me").then((response) => {
       if (response.ok) {
@@ -66,16 +71,18 @@ function App() {
           <Route path="activities" element={<Activities activities={activities}/>} />
           <Route
             path="resources"
-            element={<Resources resources={resources} />}
+            element={<Resources resources={resources} setResources={setResources} />}
           />
           <Route path="registration" element={<Registration />} />
          
-          <Route path="createresource" element={<CreateMaterial resources={resources} setResources={setResources}/>} />
+        <Route path="createresource" element={<CreateMaterial resources={resources} handleCreatedResource={handleCreatedResource} />} />
           <Route path="createactivity" element={<CreateActivity />} />
           <Route
             path="resources/:id"
-            element={<ResourceDetails resources={resources} />}
+            element={<ResourceDetails resources={resources} setResources={setResources} />}
           />
+
+          <Route path="activities/:id" element={<ActivityDetails activities={activities}/>}/>
         </Routes>
       </div>
     );
@@ -88,7 +95,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="activities" element={<Activities activities={activities}/>} />
-          <Route path="resources" element={<Resources resources={resources} />} />
+          <Route path="resources" element={<Resources resources={resources} setResources={setResources} />} />
           <Route path="registration" element={<Registration />} />
           <Route path="login" element={<Login setisLoggedIn={setisLoggedIn} />} />
          

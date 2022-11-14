@@ -3,12 +3,14 @@ import ResourceCard from "./ResourceCard";
 
 
 
-function Resources({resources}) {
+function Resources({resources, setResources}) {
+
+  console.log(resources)
   
   return (
     <div className="resources">
       <h1>Our Materials</h1>
-      {resources.map((resource) => <ResourceCard key={resource.product_id} resources = {resources}/>
+      {resources.map((resource) => <ResourceCard key={resource.product_id} resource={resource} setResources={setResources}/>
       )}
     
     </div>
