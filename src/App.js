@@ -70,7 +70,7 @@ function App() {
           />
           <Route path="registration" element={<Registration />} />
          
-          <Route path="createresource" element={<CreateMaterial />} />
+          <Route path="createresource" element={<CreateMaterial resources={resources} setResources={setResources}/>} />
           <Route path="createactivity" element={<CreateActivity />} />
           <Route
             path="resources/:id"
