@@ -266,3 +266,29 @@ code {
   display: flex;
   justify-content: space-around;
 }
+
+.pagination{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  margin-bottom: 5rem;
+  font-size: 1.2rem;
+  gap:5px;
+}
+
+.pagination .page-num {
+  padding: 8px 15px;
+  font-weight: 400;
+  cursor: pointer; 
+}
+
+.pagination .page-num:hover {
+  color:white;
+  background-color: aquamarine;
+}
+
+.pagination .active {
+  color:white;
+  background-color: aquamarine;
+}
