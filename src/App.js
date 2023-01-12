@@ -25,7 +25,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("https://rc-ays.herokuapp.com/activities")
+      .get("https://fakestoreapi.com/products")
       .then((response) => {
         console.log(response.data)
         setActivities(response.data);
@@ -36,7 +36,7 @@ function App() {
   },[]);
 
   useEffect(() => {
-    fetch("https://rc-ays.herokuapp.com/resources")
+    fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
       .then((data) => {
         setResources(data);
